@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+die () {
+    echo >&2 "$@"
+    exit 1
+}
+
+if [ ! -f .env ]
+then
+	die ".env file does not exist!"
+fi
+source .env
+
+if [ ! -f .password ]
+then
+	die ".password file does not exist!"
+fi
+PASSWORD=$(<"$(realpath .password)")
+
+IP=$(curl --silent ifconfig.me)
+AUTH=$(echo "$USERNAME:$PASSWORD" | base64)
+AGENT="$(uname -sro) $USERNAME"
+
+curl --silent \
+	--header "Authorization: Basic $AUTH" \
+	--header "User-Agent: $AGENT" \
+	"https://dynupdate.no-ip.com/nic/update?hostname=$HOSTNAME&myip=$IP"
