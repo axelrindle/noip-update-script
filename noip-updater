@@ -21,7 +21,7 @@ PASSWORD=$(<"$(realpath .password)")
 
 IP=$(curl --silent ifconfig.me)
 AUTH=$(echo "$USERNAME:$PASSWORD" | base64)
-AGENT="$(uname -sro) $USERNAME"
+AGENT="$(uname -srom) $USERNAME [Script at https://github.com/axelrindle/noip-update-script]"
 
 curl --silent \
 	--header "Authorization: Basic $AUTH" \
