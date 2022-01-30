@@ -1,2 +1,7 @@
-# noip2-update-script
-Custom update script for No-IP
+# noip-update-script
+
+> Custom update script for No-IP
+
+## License
+
+[MIT](LICENSE)
