@@ -1,0 +1,12 @@
+[Unit]
+Description=Updates the target IP address for a single host address on NoIP
+Documentation=https://github.com/axelrindle/noip-update-script
+
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/noip-update-script/noip-updater
+
+[Install]
+WantedBy=default.target

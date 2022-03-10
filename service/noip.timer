@@ -1,0 +1,11 @@
+[Unit]
+Description=Runs the noip.service unit periodically
+Documentation=https://github.com/axelrindle/noip-update-script
+
+[Timer]
+Unit=noip.service
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

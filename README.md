@@ -27,13 +27,31 @@ Just run the script:
 ./noip-updater
 ```
 
-You probably want to install a new cron job to automatically update the hostname regularily:
+## Automation
+
+### Systemd Unit
+
+The directory `service` contains a systemd unit as well as a systemd timer.
+You might want to modify them with the correct script paths.
+Place them in `~/.local/share/systemd/user/` and run the following commands to enable them:
+
+```shell
+systemctl --user enable noip.service
+systemctl --user enable noip.timer
+systemctl --user start noip.timer
+```
+
+### Cron
+
+Add the following to your `crontab`:
 
 ```
 # noip2 update
 @reboot systemd-cat -t noip /bin/bash path/to/script/noip-updater
 0 */1 * * * systemd-cat -t noip /bin/bash path/to/script/noip-updater
 ```
+
+Using `@reboot` didn't work properly on my Raspberry Pi 4...
 
 ## License
 
