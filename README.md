@@ -53,6 +53,17 @@ Add the following to your `crontab`:
 
 Using `@reboot` didn't work properly on my Raspberry Pi 4...
 
+### Docker
+
+```shell
+docker run -d \
+    --name noip-updater \
+    -e USERNAME=example \
+    -e PASSWORD=supersecret \
+    -e HOSTNAME=example.ddns.net \
+    axelrindle/noip-updater
+```
+
 ## License
 
 [MIT](LICENSE)

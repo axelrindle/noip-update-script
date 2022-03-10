@@ -5,36 +5,20 @@
 #
 # Custom update script for No-IP
 #
-# Version: 1.0.0
+# Version: 2.0.0
 # Author: Axel Rindle <mail@axelrindle.de>
 # Documentation: https://github.com/axelrindle/noip-update-script
 #
 
-set -e
+set -eu
 
-die () {
-    echo >&2 "$@"
-    exit 1
-}
-
-require_files () {
-    for file in "$@"
-    do
-        if [ ! -f "$file" ]
-        then
-            die "The file $file does not exist!"
-        fi
-    done
-}
-
+# Build paths
 DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 ENV_FILE=$DIR/.env
-PW_FILE=$DIR/.password
 
-require_files "$ENV_FILE" "$PW_FILE"
-
-source $ENV_FILE
-PASSWORD=$(<"$(realpath "$PW_FILE")")
+if [ -f "$ENV_FILE" ]; then
+    source "$ENV_FILE"
+fi
 
 IP=$(curl --silent ifconfig.me)
 AUTH=$(echo "$USERNAME:$PASSWORD" | base64)
