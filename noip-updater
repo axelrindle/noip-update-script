@@ -1,4 +1,14 @@
 #!/bin/bash
+#
+# noip-updater
+# ============
+#
+# Custom update script for No-IP
+#
+# Version: 1.0.0
+# Author: Axel Rindle <mail@axelrindle.de>
+# Documentation: https://github.com/axelrindle/noip-update-script
+#
 
 set -e
 
