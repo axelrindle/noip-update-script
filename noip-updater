@@ -20,11 +20,12 @@ if [ -f "$ENV_FILE" ]; then
     source "$ENV_FILE"
 fi
 
-IP=$(curl --silent ifconfig.me)
+IPV4=$(curl --silent ifconfig.me)
+IPV6=$(curl --silent ifconfig.co)
 AUTH=$(echo "$USERNAME:$PASSWORD" | base64)
 AGENT="$(uname -srom) $USERNAME [Script at https://github.com/axelrindle/noip-update-script]"
 
 curl --silent \
 	--header "Authorization: Basic $AUTH" \
 	--header "User-Agent: $AGENT" \
-	"https://dynupdate.no-ip.com/nic/update?hostname=$HOSTNAME&myip=$IP"
+	"https://dynupdate.no-ip.com/nic/update?hostname=$HOSTNAME&myip=$IPV4&myipv6=$IPV6"
