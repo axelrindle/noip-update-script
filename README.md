@@ -12,15 +12,16 @@
 ```properties
 USERNAME=user@example.org
 HOSTNAME=example.ddns.net
+PASSWORD=secret
 ```
 
-Change the values to suit your needs.
-
-2. Create a file named `.password` which holds your No-IP account password. Protect the file from unauthorized access:
+2. Protect the file from unauthorized access:
 
 ```shell
-chmod 700 .password
+chmod 700 .env
 ```
+
+3. All the variables may also be read from the environment directly, so a `.env` file is not mandatory.
 
 ## Usage
 
