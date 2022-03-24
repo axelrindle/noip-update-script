@@ -17,6 +17,7 @@ DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 ENV_FILE=$DIR/.env
 
 if [ -f "$ENV_FILE" ]; then
+	# shellcheck source=.env
     source "$ENV_FILE"
 fi
 
