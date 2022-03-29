@@ -1,3 +1,6 @@
+[![CI](https://github.com/axelrindle/noip-update-script/actions/workflows/ci.yml/badge.svg)](https://github.com/axelrindle/noip-update-script/actions/workflows/ci.yml)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/axelrindle/noip-updater?logo=docker)](https://hub.docker.com/r/axelrindle/noip-updater)
+
 # noip-update-script
 
 > Custom update script for No-IP
