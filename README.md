@@ -18,7 +18,7 @@ PASSWORD=secret
 2. Protect the file from unauthorized access:
 
 ```shell
-chmod 700 .env
+chmod 600 .env
 ```
 
 3. All the variables may also be read from the environment directly, so a `.env` file is not mandatory.
